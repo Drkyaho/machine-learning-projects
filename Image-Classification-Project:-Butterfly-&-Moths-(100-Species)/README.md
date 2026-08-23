@@ -25,18 +25,18 @@ The dataset is organized in a directory structure compatible with Keras `ImageDa
 
 ### 🧠 Model Architecture
 
-The classification model combines a custom CNN structure with **MobileNetV2 transfer learning**.
+The classification model uses **MobileNetV2 with transfer learning**, combined with additional layers for improved classification performance.
 
 Key components include:
 
 * MobileNetV2 pretrained architecture
 * Batch Normalization
 * Dropout
-* Transfer learning for improved image classification performance
+* Transfer learning
 
 ### 🎛️ Data Augmentation
 
-`ImageDataGenerator` was used to improve model generalization through several image transformations:
+`ImageDataGenerator` was used to improve model generalization through:
 
 * Random rotation
 * Random zoom
@@ -45,11 +45,11 @@ Key components include:
 
 ### ⚙️ Model Optimization
 
-Several callbacks and optimization techniques were implemented during training:
+Several techniques were implemented during training:
 
 * **ModelCheckpoint** — saves the best-performing model.
 * **EarlyStopping** — stops training when validation performance no longer improves.
-* **ReduceLROnPlateau** — automatically reduces the learning rate when validation performance plateaus.
+* **ReduceLROnPlateau** — reduces the learning rate when validation performance plateaus.
 * **Adam Optimizer** — initial learning rate of `0.001`.
 
 ---
@@ -85,13 +85,58 @@ Training was conducted for up to **50 epochs** using EarlyStopping and ModelChec
 
 ---
 
-## 🌐 Model Deployment
+## 📦 Model Files
 
-The trained model was converted into several formats for different deployment environments:
+Due to the size of the trained model files, some files are provided through **Google Drive**.
 
-* **SavedModel** — TensorFlow model format
-* **TensorFlow Lite (`.tflite`)** — suitable for lightweight and mobile deployment
-* **TensorFlow.js** — suitable for browser-based applications
+### 🔗 `URL.txt`
+
+The `URL.txt` file contains the **Google Drive link** to the files that are not directly stored in this repository.
+
+### 📁 `saved_model/`
+
+The `saved_model/` folder contains the TensorFlow SavedModel structure. The **`variables/`** folder is represented through a Google Drive link because the model variable files are too large to store directly in the repository.
+
+```text
+saved_model/
+├── saved_model.pb
+├── fingerprint.pb/
+└── URL.txt/
+```
+
+The `URL.txt` folder provides access to the Google Drive link containing the required **model variable files**.
+
+### 📁 `tflite/`
+
+The `tflite/` folder contains the TensorFlow Lite version of the model along with its corresponding class labels.
+
+```text
+tflite/
+├── model.tflite
+└── label.txt
+```
+
+* **`model.tflite`** — TensorFlow Lite model used for lightweight deployment.
+* **`label.txt`** — contains the class labels corresponding to the model's 100 butterfly and moth species.
+
+---
+
+## 🗂️ Project Structure
+
+```text
+submission/
+├── saved_model/
+│   ├── saved_model.pb
+│   └── variables/
+│       └── README.md
+├── tflite/
+│   ├── model.tflite
+│   └── label.txt
+├── URL.txt
+├── notebook.ipynb
+├── README.md
+└── requirements.txt
+```
 
 ---
 
@@ -109,26 +154,6 @@ The trained model was converted into several formats for different deployment en
 
 ---
 
-## 📦 Project Structure
-
-```text
-submission/
-├── tfjs_model/
-│   ├── group1-shard1of1.bin
-│   └── model.json
-├── tflite/
-│   ├── model.tflite
-│   └── label.txt
-├── saved_model/
-│   ├── saved_model.pb
-│   └── variables/
-├── notebook.ipynb
-├── README.md
-└── requirements.txt
-```
-
----
-
 ## 🚀 How to Run
 
 ### 1. Install Dependencies
@@ -143,6 +168,12 @@ Open `Submission_Akhir.ipynb` in Jupyter Notebook or Google Colab and run the ce
 
 Make sure the dataset is available at the path specified in the notebook before starting the training process.
 
+### 3. Access the Model Files
+
+For the complete TensorFlow SavedModel, use the Google Drive link provided in `URL.txt` or the `README.md` inside the `saved_model/variables/` folder.
+
+For TensorFlow Lite deployment, use the files available directly in the `tflite/` folder.
+
 ---
 
 ## 📌 Conclusion
@@ -150,4 +181,3 @@ Make sure the dataset is available at the path specified in the notebook before 
 This project successfully developed an image classification model capable of distinguishing **100 butterfly and moth species** using transfer learning with MobileNetV2.
 
 The model achieved **96.00% validation accuracy** and **97.00% testing accuracy**, demonstrating strong performance in classifying butterfly and moth species from images.
-
