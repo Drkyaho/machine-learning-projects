@@ -21,14 +21,12 @@ The project covers the following key aspects:
 Membangun-ETL-Pipeline-Sederhana/
 │
 ├── tests/                 # Unit tests for the ETL pipeline
-│   ├── README.md
 │   ├── __init__.py
 │   ├── test_extract.py
 │   ├── test_load.py
 │   └── test_transform.py
 │
 ├── utils/                 # ETL modules
-│   ├── README.md
 │   ├── __init__.py
 │   ├── extract.py         # Data extraction process
 │   ├── transform.py       # Data transformation process
