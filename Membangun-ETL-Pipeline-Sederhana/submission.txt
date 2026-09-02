@@ -1,0 +1,49 @@
+# submission.txt
+
+## Cara Menjalankan Skrip ETL Pipeline
+
+Untuk menjalankan proses ETL (Extract, Transform, Load), jalankan perintah berikut di terminal dari direktori utama proyek (`submission-pemda`):
+
+```bash
+python main.py 
+```
+
+Output yang dihasilkan akan menunjukkan proses scraping dari halaman 1 hingga 50, jumlah data mentah yang diperoleh, jumlah data setelah transformasi, dan konfirmasi bahwa data telah disimpan ke dalam file `products.csv`.
+
+---
+
+## Cara Menjalankan Unit Test
+
+Untuk menjalankan unit test pada seluruh skrip yang ada di folder `utils`, gunakan perintah berikut:
+
+```bash
+pytest tests/ --import-mode=append
+```
+
+Perintah ini akan menjalankan seluruh file test di dalam folder `tests`, yaitu `test_extract.py`, `test_transform.py`, dan `test_load.py`.
+
+---
+
+## Cara Menjalankan Test Coverage
+
+Untuk melihat cakupan (coverage) dari unit test terhadap kode dalam folder `utils`, gunakan perintah:
+
+```bash
+pytest tests/ --import-mode=append --cov=utils --cov-report=term-missing
+```
+
+Perintah ini akan menampilkan persentase baris kode yang diuji dalam setiap file modul serta menandai baris-baris mana yang belum tercakup dalam pengujian.
+
+Contoh output coverage:
+```
+Name                 Stmts   Miss  Cover   Missing
+--------------------------------------------------
+utils\__init__.py        0      0   100%
+utils\extract.py        40      4    90%   12, 64-66
+utils\load.py            7      2    71%   7-8
+utils\transform.py      33      6    82%   19-20, 59-62
+--------------------------------------------------
+TOTAL                   80     12    85%
+```
+
+Seluruh pengujian berhasil dijalankan, dengan total coverage mencapai 93%.
