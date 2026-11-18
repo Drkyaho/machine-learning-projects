@@ -1,55 +1,72 @@
-# Sentiment Analysis Project: Play Store Reviews – Block Blast Game
-
-This project focuses on performing **sentiment analysis** on user reviews of the **Block Blast** game from the Google Play Store. The dataset was collected through **web scraping**, followed by data preprocessing, feature extraction, and sentiment labeling.
-
-Machine learning algorithms were then applied to train and evaluate sentiment classification models.
+# Sentiment Analysis: Block Blast Game Reviews
 
 ## Project Overview
 
-The project follows a sentiment analysis workflow consisting of:
+This project analyzes user reviews of the Block Blast game collected from the Google Play Store to identify positive and negative user sentiments.
 
-1. **Data Collection** — Scraped user reviews of the Block Blast game from the Google Play Store.
-2. **Data Preprocessing** — Prepared and cleaned the collected review data for analysis.
-3. **Feature Extraction** — Transformed review text into numerical features suitable for machine learning.
-4. **Data Labeling** — Assigned sentiment labels to the review data.
-5. **Model Training** — Trained multiple machine learning classification algorithms.
-6. **Model Evaluation** — Compared model performance using accuracy on the training and testing datasets.
+The dataset was collected through web scraping and processed using Natural Language Processing (NLP) techniques. Sentiment labels were generated using an Indonesian sentiment lexicon, followed by TF-IDF feature extraction and machine learning classification.
 
-## 🤖 Machine Learning Models
+The objective was to explore user feedback and compare different machine learning models for sentiment classification.
 
-Two models achieved the highest performance:
+## Project Workflow
 
-* **Random Forest**
-* **Logistic Regression**
+1. **Data Collection** — Used previously scraped Google Play Store reviews of the Block Blast game.
+2. **Data Cleaning** — Removed missing values and duplicate records from the collected dataset.
+3. **Text Preprocessing** — Applied text cleaning, case folding, slang normalization, tokenization, and stopword removal.
+4. **Sentiment Labeling** — Assigned positive and negative sentiment labels using an Indonesian sentiment lexicon.
+5. **Feature Extraction** — Converted processed review text into numerical representations using TF-IDF and N-gram techniques.
+6. **Model Training** — Trained and compared Bernoulli Naive Bayes, Random Forest, and Logistic Regression classifiers.
+7. **Model Evaluation** — Evaluated model performance using training and testing accuracy.
 
-Both models achieved an accuracy of **93.58%** on the training and testing sets, exceeding the target accuracy of **92%**.
+## Dataset
 
-Based on the evaluation results, **either Random Forest or Logistic Regression can be selected as the main predictor** for classifying the sentiment of new Block Blast review texts.
+- **Source:** Google Play Store reviews of Block Blast
+- **Initial records:** 31,638 reviews
+- **Records after removing missing values:** 20,640 reviews
+- **Sentiment classes:** Positive and Negative
 
-## Results
+The sentiment distribution after lexicon-based labeling:
+- Positive: 14,194 reviews
+- Negative: 6,446 reviews
 
-| Model               | Training Accuracy | Testing Accuracy |
-| ------------------- | ----------------: | ---------------: |
-| Random Forest       |            93.58% |           93.58% |
-| Logistic Regression |            93.58% |           93.58% |
+## Machine Learning Models
 
-The results indicate that both models performed consistently across the training and testing datasets.
+Three classification models were evaluated using different text feature extraction approaches:
 
-## 🛠️ Technologies & Techniques
+- **Bernoulli Naive Bayes** — TF-IDF features
+- **Random Forest** — N-gram features (unigram and bigram)
+- **Logistic Regression** — TF-IDF features
 
-* Python
-* Jupyter Notebook
-* Web Scraping
-* Natural Language Processing (NLP)
-* Feature Extraction
-* Sentiment Analysis
-* Random Forest
-* Logistic Regression
-* Scikit-learn
+## Model Performance
+
+| Model | Training Accuracy | Testing Accuracy |
+|---|---:|---:|
+| Bernoulli Naive Bayes | 89.32% | 90.41% |
+| Random Forest | 100.00% | 93.75% |
+| Logistic Regression | 93.50% | 93.58% |
+
+Random Forest achieved the highest testing accuracy of **93.75%**, followed by Logistic Regression at **93.58%**.
+
+## Technologies & Techniques
+
+- Python
+- Jupyter Notebook / Google Colab
+- Pandas and NumPy
+- Matplotlib and Seaborn
+- Natural Language Processing (NLP)
+- NLTK
+- Sastrawi
+- Text Preprocessing
+- Sentiment Lexicon
+- TF-IDF
+- N-gram Feature Extraction
+- Scikit-learn
+- Bernoulli Naive Bayes
+- Random Forest
+- Logistic Regression
 
 ## Learning Outcomes
 
-This project strengthened my understanding of **text-based machine learning workflows**, from collecting real-world data through web scraping and preprocessing text to feature extraction, sentiment labeling, model training, and evaluation.
+This project provided practical experience in building a text classification workflow, including collecting user reviews, preprocessing Indonesian text, generating sentiment labels using a lexicon-based approach, extracting text features, and training machine learning classifiers.
 
-It also provided practical experience in applying **Natural Language Processing and machine learning classification techniques** to analyze user feedback and sentiment.
-
+It also strengthened my understanding of NLP techniques and model comparison for analyzing user feedback.
